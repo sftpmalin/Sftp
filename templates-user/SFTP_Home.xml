@@ -10,9 +10,13 @@
   <!-- Liens utiles -->
   <Support>https://github.com/sftpmalin/Media-Remote-Convert</Support>
   <Project>https://github.com/sftpmalin/Media-Remote-Convert</Project>
-  <Overview>SFTP Home est un serveur SFTP simple et automatique. 
-Multi-utilisateur, gestion des clés SSH, génération automatique, configuration persistante dans /data. 
-Aucune dépendance, aucune configuration complexe : vous installez, et c'est prêt.</Overview>
+
+  <Overview>
+SFTP Home est un serveur SFTP simple et automatique.
+Multi-utilisateur, gestion des clés SSH, génération automatique et configuration persistante dans /data.
+Aucune dépendance, aucune configuration complexe : vous installez et c'est prêt.
+  </Overview>
+
   <Icon>https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/SFTP.png</Icon>
 
   <!-- Chemin vers ton XML brut GitHub -->
@@ -23,16 +27,53 @@ Aucune dépendance, aucune configuration complexe : vous installez, et c'est pr�
 
   <!-- Variables -->
   <Config Name="TZ" Target="TZ" Default="Europe/Paris" Type="Variable" Display="always">Europe/Paris</Config>
-  <Config Name="PUID" Target="PUID" Default="99" Type="Variable" Display="always">99</Config>
-  <Config Name="PGID" Target="PGID" Default="100" Type="Variable" Display="always">100</Config>
 
-  <!-- Choix taille clé SSH -->
-  <Config Name="Clé SSH" Target="KEY_VAR" Default="3072" 
+  <Config Name="PUID" Target="PUID" Default="99"
+          Description="Unraid : nobody = 99"
+          Type="Variable" Display="always">99</Config>
+
+  <Config Name="PGID" Target="PGID" Default="100"
+          Description="Unraid : users = 100"
+          Type="Variable" Display="always">100</Config>
+
+  <!-- Choix de la taille de la clé SSH -->
+  <Config Name="Clé SSH" Target="KEY_VAR" Default="3072"
           Description="Valeurs possibles : 4096 / 3072 / 2048 / ed25519"
           Type="Variable" Display="always">3072</Config>
 
+
+  <!-- ======================================================= -->
+  <!--                 VARIABLES UTILISATEURS                  -->
+  <!-- ======================================================= -->
+
+  <Config Name="Utilisateur 1" Target="USERS_VAR1" Default="user1:0000:1000:100"
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always">user1:0000:1000:100</Config>
+
+  <Config Name="Utilisateur 2" Target="USERS_VAR2" Default="user2:0000:1001:100"
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always">user2:0000:1001:100</Config>
+
+  <Config Name="Utilisateur 3" Target="USERS_VAR3" Default="user3:0000:1002:100"
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always">user3:0000:1002:100</Config>
+
+  <Config Name="Utilisateur 4" Target="USERS_VAR4" Default="user4:0000:1003:100"
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always">user4:0000:1003:100</Config>
+
+  <Config Name="Utilisateur 5" Target="USERS_VAR5" Default="user5:0000:1004:100"
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always">user5:0000:1004:100</Config>
+
+  <Config Name="Utilisateur 6" Target="USERS_VAR6" Default="user6:0000:1005:100"
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always">user6:0000:1005:100</Config>
+
+
   <!-- Montage /data (spécifique SFTP HOME) -->
-  <Config Name="Données & Configuration" Target="/data" Default="/mnt/user/appdata/sftphome/" 
+  <Config Name="Données & Configuration" Target="/data"
+          Default="/mnt/user/appdata/sftphome/"
           Type="Path" Mode="rw" Display="always">/mnt/user/appdata/sftphome/</Config>
 
   <TailscaleStateDir/>
